@@ -33,10 +33,10 @@ public class Program
         Console.WriteLine(new IdCode("60102031670").IsValid());  // True
         Console.WriteLine(new IdCode("39106060750").IsValid());  // True
 
-        Omamoodel sdsf = new Omamoodel();
+        
 
         Console.WriteLine(new IdCode("60102031670").Sunnikoht());
-
+        Console.WriteLine(new IdCode("60109301670").vozrast());
 
 
     }

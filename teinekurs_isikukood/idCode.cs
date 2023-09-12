@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -171,7 +172,7 @@ namespace teinekurs_isikukood
             {
                 haigla = "ohio";
             }
-            Console.WriteLine(haigla);
+            //Console.WriteLine(haigla);
             return haigla;
 
 
@@ -180,6 +181,36 @@ namespace teinekurs_isikukood
             //    return Convert.ToInt32(haigla);
 
         }
+        public int vozrast()
+        {
+            int day = GetDay();
+            int month = GetMonth();
+            int year = GetFullYear();
+            int nowmonth = DateTime.Now.Month;
+            int nowyear = DateTime.Now.Year;
+            int nowday= DateTime.Now.Day;
+
+            int age = nowyear - year;
+            //esli denroshdenie eshe ne nastupil po mesecu, to vozrast na odin god mladshe
+            if (nowmonth < month)
+            {
+                age--;
+            }
+            //esli denroshdenie eshe ne nastupila po dnju i mesecu, to vozrast na odin god mladshe
+            else if (nowmonth == month)
+            {
+                if (nowday < day)
+                {
+                    age--;
+                }
+            }
+            //Console.WriteLine(age);
+
+            return age;
+        }
+        
+        
+            
 
         
         //public int GetSunnikoht(object haigla)
