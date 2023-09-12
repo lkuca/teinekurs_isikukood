@@ -1,7 +1,10 @@
-﻿using teinekurs_isikukood;
+﻿using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using teinekurs_isikukood;
 
 public class Program
 {
+    //public string ikood;
     public static void Main()
     {
 
@@ -29,9 +32,12 @@ public class Program
         // control number 3rd round
         Console.WriteLine(new IdCode("60102031670").IsValid());  // True
         Console.WriteLine(new IdCode("39106060750").IsValid());  // True
-        omamoodel model= new omamoodel();
 
-        
-        Console.WriteLine(new IdCode("60102031670").GetSunnikoht());
+        Omamoodel sdsf = new Omamoodel();
+
+        Console.WriteLine(new IdCode("60102031670").Sunnikoht());
+
+
+
     }
 }

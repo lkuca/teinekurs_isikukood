@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -147,35 +148,44 @@ namespace teinekurs_isikukood
             int year = GetFullYear();
             return new DateOnly(year, month, day);
         }
-        public string Sunnikoht(string ikood)
+        public string Sunnikoht()
         {
-            List<char> ikoodList = new List<char>(ikood);
+            List<char> ikoodList = new List<char>(_idCode);
             string tahed8910 = ikoodList[7].ToString() + ikoodList[8].ToString() + ikoodList[9].ToString();
             int t = int.Parse(tahed8910);
             string haigla;
 
             if (1 < t && t < 10)
             {
-                haigla = "kuegogsoig b";
+                haigla = "Pärnu haigla ";
             }
             else if (11 < t && t < 19)
             {
-                haigla = "tartu fsdfjsf";
+                haigla = "Haapsalu haigla";
             }
             else if (21 < t && t < 220)
             {
-                haigla = "jdfjgdfgdfgdfgd";
+                haigla = "Rakvere haigla";
             }
             else
             {
                 haigla = "ohio";
             }
+            Console.WriteLine(haigla);
             return haigla;
 
+
+            //    public int GetSunnikoht(object haigla)
+            //{
+            //    return Convert.ToInt32(haigla);
+
         }
-        public int GetSunnikoht(object haigla)
-        {
-            return Convert.ToInt32(haigla);
-        }
+
+        
+        //public int GetSunnikoht(object haigla)
+        //{
+        //    Console.WriteLine(haigla);
+        //    return Convert.ToInt32(haigla);
+        //}
     }
 }
